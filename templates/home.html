@@ -8,6 +8,8 @@
 <body>
     <p>New to this site</p><a href="#">Sign In</a>
     <p>Already have an account</p><a href="#">Log In</a> 
-    
+    {%for post in posts%}
+    <p>{{post}}</p>
+    {%endfor%}
 </body>
 </html>
