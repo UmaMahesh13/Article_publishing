@@ -8,12 +8,12 @@ addSectionButton.addEventListener('click', () => {
   const previousSection = sectionsContainer.lastElementChild;
   
   if (!previousSection || !isEmptySection(previousSection)) {
-    const sectionTemplate = `
+    const textsectionTemplate = `
       <div class="section">
-        <textarea name="section-content-${sectionIndex}" placeholder="Section Content"></textarea>
+        <textarea class="section-content-${sectionIndex}" placeholder="Section Content"></textarea>
       </div>
     `;
-    sectionsContainer.insertAdjacentHTML('beforeend', sectionTemplate);
+    sectionsContainer.insertAdjacentHTML('beforeend', textsectionTemplate);
     
     sectionIndex++;
   }
@@ -21,7 +21,7 @@ addSectionButton.addEventListener('click', () => {
 
 // Helper function to check if a section is empty
 function isEmptySection(section) {
-  const sectionContent = section.querySelector('textarea[name^="section-content-"]');
+  const sectionContent = section.querySelector('textarea[class^="section-content-"]');
   
   return sectionContent.value.trim() === '';
 }
@@ -34,7 +34,7 @@ articleForm.addEventListener('submit', (event) => {
   // Retrieve the form data
   const title = document.getElementById('title-input').value;
   const sectionTitles = Array.from(document.querySelectorAll('input[name^="section-title-"]')).map(input => input.value);
-  const sectionContents = Array.from(document.querySelectorAll('textarea[name^="section-content-"]')).map(textarea => textarea.value);
+  const sectionContents = Array.from(document.querySelectorAll('textarea[class^="section-content-"]')).map(textarea => textarea.value);
 
   // Perform any necessary data validation or manipulation here
 
@@ -79,7 +79,7 @@ function autoSave(event) {
 }
 // Event listeners for auto-saving
 const titleInput = document.getElementById('title-input');
-const sectionTextareas = document.querySelectorAll('textarea[name^="section-content-"]');
+const sectionTextareas = document.querySelectorAll('textarea[class^="section-content-"]');
 
 titleInput.addEventListener('input', autoSave);
 
