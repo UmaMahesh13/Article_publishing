@@ -1,0 +1,23 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+<!-- article_edit.html -->
+<form id="article-form">
+    {%csrf_token%}
+    <input type="text" id="title-input" placeholder="Title" required>
+    <div id="sections-container"></div>
+    <button type="button" id="add-section-button">Add Section</button>
+    <button type="submit">Save Article</button>
+  </form>
+  
+  
+  <script src="{%static 'post_edit.js'%}"></script>
+</body>
+</html>
