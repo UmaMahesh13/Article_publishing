@@ -66,6 +66,11 @@ function autoSave(event) {
   formData.append('title', title);
   formData.append('content', content);
 
+  function getCookie(name) {
+    const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+    return cookieValue ? cookieValue.pop() : '';
+  }
+  
   const xhr = new XMLHttpRequest();
   xhr.open('POST', './auto-save', true);
   xhr.setRequestHeader('X-CSRFToken', getCookie('csrftoken'));

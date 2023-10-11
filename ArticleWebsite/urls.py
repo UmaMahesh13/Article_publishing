@@ -25,6 +25,6 @@ urlpatterns = [
     path('signin',views.signin,name="signin"),
     path('authenticate',views.authenticate,name="authentication"),
     path('register',views.register,name="register"),
-    path('post/',include("Posts.urls")),
+    path('post/',include("posts.urls")),
     
 ]

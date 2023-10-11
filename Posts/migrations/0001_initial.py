@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
                 ('section_type', models.CharField(choices=[('text', 'Text'), ('image', 'Image'), ('quote', 'Quote'), ('embed', 'Embed')], max_length=10)),
                 ('content_or_path', models.TextField()),
                 ('order', models.PositiveIntegerField()),
-                ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='sections', to='Posts.post')),
+                ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='sections', to='posts.post')),
             ],
             options={
                 'ordering': ['order'],

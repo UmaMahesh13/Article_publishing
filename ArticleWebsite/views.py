@@ -1,7 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate as auth
-from profiles.models import User
+from django.contrib.auth import get_user_model
+
 def home(request):
     posts=["This is "+str(i)+" post" for i in range(1,11)]
     return render(request,"home.html",{"posts":posts})
@@ -28,8 +29,9 @@ def register(request):
     if request.method=='POST':
         name=request.POST.get('Username')
         password=request.POST.get('Password')
+        users=get_user_model()
         try:
-            A=User(username=name,password=password)
+            A=users.objects.create_user(username=name,password=password)
             A.save()
             return HttpResponse("<h1>You have successfully registered<h1>")
         except:

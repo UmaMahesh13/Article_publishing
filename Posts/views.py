@@ -7,7 +7,7 @@ def edit(request):
 
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-@csrf_exempt
+
 def auto_save_post(request):
     if request.method == 'POST':
         title = request.POST.get('title')
